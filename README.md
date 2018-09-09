@@ -2,31 +2,31 @@
 人脸识别项目ing<br/>
 
 # 项目介绍：<br/>
-目前在做人脸图像相关，开个repository记录一下开发进程<br/>
+目前在做人脸图像相关项目，开个repository记录一下开发心得<br/>
 
-# 比较有价值的参考论文:<br/>
-# 人脸检测，关键点定位，追踪：<br/>
-【1】Deep Convolutional Network Cascade for Facial Point Detection
-【2】A Convolutional Neural Network Cascade for Face Detection
+# 参考论文:<br/>
+## 人脸检测，关键点定位，追踪：<br/>
+【1】Deep Convolutional Network Cascade for Facial Point Detection<br/>
+【2】A Convolutional Neural Network Cascade for Face Detection<br/>
 【3】Joint Face Detection and Alignment using Multi-task Cascaded Convolutional Networks<br/>
-【4】Robust facial landmark tracking via cascade regression
-【5】Convolutional Experts Network for Facial Landmark Detection
-【6】A Functional Regression approach to Facial Landmark Tracking
+【4】Robust facial landmark tracking via cascade regression<br/>
+【5】Convolutional Experts Network for Facial Landmark Detection<br/>
+【6】A Functional Regression approach to Facial Landmark Tracking<br/>
 
-# 人脸识别：<br/>
+## 人脸识别：<br/>
 【1】FaceNet:A Unified Embedding for Face Recognition and Clustering<br/>
 【2】Additive Margin Softmax for Face Verification<br/>
 【3】ArcFace-Additive Angular Margin Loss for Deep Face Recognition<br/>
-# 活体检测：<br/>
+## 活体检测：<br/>
 【1】Learning Deep Models for Face Anti-Spoofing Binary or Auxiliary Supervision<br/>
-# 人脸去网纹：<br/>
+## 人脸去网纹：<br/>
 【1】Multi-task ConvNet for Blind Face Inpainting with Application to Face Verification<br/>
 【2】DeMeshNet: Blind Face Inpainting for Deep MeshFace Verification<br/>
 
 
 # 数据集<br/>
 人脸识别：欧美：vggFace，lfw，WebFace，MSIM 亚洲：msra亚洲人脸数据集<br/>
-人脸检测对齐：FDDB,widerface,ALFW
+人脸检测对齐：FDDB,widerface,ALFW<br/>
 
 # loss函数：（因为某些原因，拿到的训练数据集不够全，所以相对于论文的结果会有一定的差距，仅作参考）<br/>
 softmax_loss：目前证明可以很好地拟合训练集，loss函数可以降到0.0x级别，但是在lfw测试集上面性能和主流loss差距较大<br/>
@@ -43,14 +43,13 @@ L_Resnet_E_IR：同样的loss函数下，最终迭代精确度最高的网络，
 # 相关学习资料
 李飞飞计算机视觉cs231n课程<br/>
 fast.ai课程<br/>
-补充知识点：
+补充知识点：<br/>
 关于CNN对图像特征的位移、尺度、形变不变性的理解<br/>
 卷积神经网络显存,内存,使用量估计<br/>
 深度学习优化器解析，模型参数调优，正则化机制<br/>
 
 # 工程相关：
 opencv,dlib,cmake
-
 
 # 更新ing
 

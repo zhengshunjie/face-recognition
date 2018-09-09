@@ -1,4 +1,4 @@
-2# face-recognition
+# face-recognition
 人脸识别项目ing<br/>
 
 # 项目介绍：<br/>

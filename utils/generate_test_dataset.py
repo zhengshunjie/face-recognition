@@ -28,7 +28,7 @@ def generate():
             if i>=200000:
                 return 
             print "move %s -> %s" % (id_path+person_picture, output_path)
-
+ 
 
 def modify():
 

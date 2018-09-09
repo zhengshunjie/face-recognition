@@ -25,17 +25,17 @@
 
 
 # 数据集<br/>
-人脸识别：欧美：vggFace，lfw，WebFace，MSIM 亚洲：msra亚洲人脸数据集<br/>
-人脸检测对齐：FDDB,widerface,ALFW<br/>
+人脸识别：欧美：vggFace，lfw，WebFace，MSIM   亚洲：msra亚洲人脸数据集<br/>
+人脸检测对齐：FDDB，widerface，ALFW<br/>
 
-# loss函数：（因为某些原因，拿到的训练数据集不够全，所以相对于论文的结果会有一定的差距，仅作参考）<br/>
+# loss函数实测：（仅作参考）<br/>
 softmax_loss：目前证明可以很好地拟合训练集，loss函数可以降到0.0x级别，但是在lfw测试集上面性能和主流loss差距较大<br/>
 center_loss：强调最小化类内距离，单独不太好训练，和softmax结合着用，实测效果提升不是很明显<br/>
 triplet_loss：谷歌论文提出的损失函数，强调类间类内距离，实测不太好训练，所以打算在后期尝试用来finetune，也有一种想法是将triplet_loss的欧式距离改成余弦距离测试一下效果<br/>
 arc_loss：理论上来说应该是精度最高的，基于L_Resnet_E_IR网络进行训练，实测网络训练时占用显存比较多，要复现论文的batch_size和迭代步骤数需要一定的硬件支撑和时间(论文中作者用了4个tesla-p40,实测确实要4个才跑的起512的batch_size，一个batch迭代1.5-2秒)<br/>
 additive_margin_loss:一种基于angular的损失函数，采用20层或者36层的resnet网络，收敛速度比较快，lfw数据集上准确率明显优于softmax,但是loss相对于softmax不太容易降下去，对于训练集的拟合程度不是很好，目前打算采用GPU并行增大batch_size数量进行迭代，同时调整学习率，观察loss下降趋势进一步优化<br/>
 
-# 网络架构：<br/>
+# 网络架构实测：<br/>
 resnet(20,36):实测收敛速度快，用相同的loss函数进行迭代对比，lfw准确率介于inception和LR之间，后期可以试试更深的层数迭代<br/>
 inception_resnet_v1：按理说效果应该是要比resnet好，但是实测性能也没有太明显的提升<br/>
 L_Resnet_E_IR：同样的loss函数下，最终迭代精确度最高的网络，迭代速度较于resnet和inception要慢一倍<br/>

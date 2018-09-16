@@ -49,7 +49,7 @@ fast.ai课程<br/>
 深度学习优化器解析，模型参数调优，正则化机制<br/>
 
 # 工程相关：
-opencv,dlib,cmake
+opencv,dlib
 
 # 更新ing
 9.16<br/>

@@ -1,6 +1,6 @@
 import os
 import random
-
+ 
 
 for name in os.listdir("/data/"):
 	if 'txt' in name:

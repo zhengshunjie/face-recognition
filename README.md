@@ -38,7 +38,7 @@ additive_margin_loss:一种基于angular的损失函数，采用20层或者36层
 # 网络架构实测：<br/>
 resnet(20,36):实测收敛速度快，用相同的loss函数进行迭代对比，lfw准确率介于inception和LR之间，后期可以试试更深的层数迭代<br/>
 inception_resnet_v1：按理说效果应该是要比resnet好，但是实测性能也没有太明显的提升<br/>
-L_Resnet_E_IR：同样的loss函数下，最终迭代精确度最高的网络，迭代速度较于resnet和inception要慢一倍<br/>
+L_Resnet_E_IR：同样的loss函数下，最终迭代精确度最高的网络，迭代速度较于resnet和inception要慢一倍<br/>. eg. L_Resnet_50网络 :32bacth下单GPU显存8g，teslap40共22g显存，单gpu可跑64batch
 
 # 相关学习资料
 李飞飞计算机视觉cs231n课程<br/>

@@ -43,7 +43,7 @@ def main():
     train_filename = './train.tfrecords'
     writer = tf.python_io.TFRecordWriter(train_filename)
 
-    dataset = facenet.get_dataset("~/asian/celebrity_aligned_mtcnn_112_colabin/")
+    dataset = facenet.get_dataset("~/")
     image_list, label_list = facenet.get_image_paths_and_labels(dataset)
     assert(len(image_list)==len(label_list))
     for i in range(0,len(image_list)):

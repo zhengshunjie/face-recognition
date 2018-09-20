@@ -43,17 +43,18 @@ def main():
     train_filename = './train.tfrecords'
     writer = tf.python_io.TFRecordWriter(train_filename)
 
-    dataset = facenet.get_dataset("~/data")
+    dataset = facenet.get_dataset("~/asian/celebrity_aligned_mtcnn_112_colabin/")
     image_list, label_list = facenet.get_image_paths_and_labels(dataset)
     assert(len(image_list)==len(label_list))
     for i in range(0,len(image_list)):
         image = image_list[i]
         label = label_list[i]
-        img = image.resize((image.shape[0], image.shape[1]));
+        img= Image.open(image)
+        img = img.resize((112,112));
         img_raw=img.tobytes()
         example = tf.train.Example(features=tf.train.Features(feature={
-            "label": tf.train.Feature(int64_list=tf.train.Int64List(value=label)),
-            'img_raw': tf.train.Feature(bytes_list=tf.train.BytesList(value=img_raw))
+            "label": tf.train.Feature(int64_list=tf.train.Int64List(value=[label])),
+            'img_raw': tf.train.Feature(bytes_list=tf.train.BytesList(value=[img_raw]))
         }))
         writer.write(example.SerializeToString())
     writer.close()

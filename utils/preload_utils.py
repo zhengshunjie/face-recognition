@@ -2,6 +2,7 @@
 from tensorflow.python import pywrap_tensorflow
 import os
 
+#这种办法无法打印出img_placeholder这种tensor
 checkpoint_path = os.path.join( "checkpoint-00454721")
 reader = pywrap_tensorflow.NewCheckpointReader(checkpoint_path)
 var_to_shape_map = reader.get_variable_to_shape_map()

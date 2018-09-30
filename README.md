@@ -61,9 +61,19 @@ opencv,dlib
 4.增加视频提取人脸帧，并且进行方向调整脚本（左旋90，右旋90，倒立均无法检测出人脸）<br/>
 5.增加模型预加载测试脚本<br/>
 
-9.20
+9.20<br/>
 增加网纹生成脚本<br/>
 
-9.25
-增加预加载多gpu训练模型脚本
+9.25<br/>
+增加预加载多gpu训练模型脚本<br/>
 
+10.1<br/>
+记录一些docker常用命令：<br/>
+sudo docker images<br/>
+sudo docker run -idt -v /data:/data dce2d4ae5307 /bin/bash<br/>
+sudo docker run -it docker_name:1.0 /bin/bash<br/>
+sudo docker ps<br/>
+sudo docker attach p_id<br/>
+docker commit -m="has update" -a="runoob" 47090a533b51 user_name/docker_name:3.0<br/>
+sudo docker stop<br/>
+exit<br/>

@@ -69,6 +69,7 @@ opencv,dlib
 
 10.1<br/>
 记录一些docker常用命令：<br/>
+sudo docker import docker_name.tar docker_name:1.0<br/>
 sudo docker images<br/>
 sudo docker run -idt -v /data:/data dce2d4ae5307 /bin/bash<br/>
 sudo docker run -it docker_name:1.0 /bin/bash<br/>

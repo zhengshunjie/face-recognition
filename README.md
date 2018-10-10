@@ -52,6 +52,7 @@ fast.ai课程<br/>
 
 # 工程相关：
 opencv,dlib
+pip wheel --wheel-dir=下载目录 tensorlayer==x.x.x
 
 # 更新ing
 9.16<br/>

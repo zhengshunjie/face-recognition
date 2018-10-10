@@ -79,3 +79,5 @@ sudo docker attach p_id<br/>
 docker commit -m="has update" -a="runoob" 47090a533b51 user_name/docker_name:3.0<br/>
 sudo docker stop<br/>
 exit<br/>
+sudo docker rm . <br/>
+sudo docker rmi . <br/>

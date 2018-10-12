@@ -54,6 +54,8 @@ fast.ai课程<br/>
 opencv,dlib
 pip wheel --wheel-dir=下载目录 tensorlayer==x.x.x
 https://pypi.tuna.tsinghua.edu.cn/simple/
+awk 'BEGIN{ 100000*srand();}{ printf "%s %s\n", rand(), $0}'  ?train_160309-train.txt |sort -k1n | awk '{gsub($1FS,""); print $0}' | tee _.txt
+
 
 # 更新ing
 9.16<br/>
@@ -80,5 +82,6 @@ sudo docker attach p_id<br/>
 docker commit -m="has update" -a="runoob" 47090a533b51 user_name/docker_name:3.0<br/>
 sudo docker stop<br/>
 exit<br/>
-sudo docker rm . <br/>
-sudo docker rmi . <br/>
+sudo docker rm  <br/>
+sudo docker rmi <br/>
+ctrl+p, ctrl+q <br/>

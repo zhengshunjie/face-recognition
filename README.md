@@ -17,6 +17,7 @@
 【1】FaceNet:A Unified Embedding for Face Recognition and Clustering<br/>
 【2】Additive Margin Softmax for Face Verification<br/>
 【3】ArcFace-Additive Angular Margin Loss for Deep Face Recognition<br/>
+【4】MobileFaceNets Efficient CNNs for Accurate Real-Time Face Verification on Mobile Devices <br/>
 ## 活体检测：<br/>
 【1】Learning Deep Models for Face Anti-Spoofing Binary or Auxiliary Supervision<br/>
 ## 人脸去网纹：<br/>

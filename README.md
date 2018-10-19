@@ -29,6 +29,11 @@
 人脸识别：欧美：vggFace，lfw，WebFace，MSIM   亚洲：msra亚洲人脸数据集<br/>
 人脸检测对齐：FDDB，widerface，ALFW<br/>
 
+开发环境：
+tesla p40，4gpu，单卡显存22g<br/>
+python3 + tensorflow1.11 + cuda9.2 + cudnn7.2<br/>
+
+
 # loss函数实测：（仅作参考）<br/>
 softmax_loss：目前证明可以很好地拟合训练集，loss函数可以降到0.0x级别，但是在lfw测试集上面性能和主流loss差距较大<br/>
 center_loss：强调最小化类内距离，单独不太好训练，和softmax结合着用，实测效果提升不是很明显<br/>
@@ -39,7 +44,8 @@ additive_margin_loss:一种基于angular的损失函数，采用20层或者36层
 # 网络架构实测：<br/>
 resnet(20,36):实测收敛速度快，用相同的loss函数进行迭代对比，lfw准确率介于inception和LR之间，后期可以试试更深的层数迭代<br/>
 inception_resnet_v1：按理说效果应该是要比resnet好，但是实测性能也没有太明显的提升<br/>
-L_Resnet_E_IR：同样的loss函数下，最终迭代精确度最高的网络，迭代速度较于resnet和inception要慢一倍(L_Resnet_50网络 :32bacth下单GPU显存8g，teslap40共22g显存，单gpu可跑64batch)<br/>
+L_Resnet_E_IR：同样的loss函数下，最终迭代精确度最高的网络，迭代速度较于resnet和inception-resnet要慢一倍,采用了L_Resnet_50网络:bacth_size=32时GPU显存占用8g，tensorflow模型迭代速度约30-40 sample/s，识别一张图片300ms左右<br/>
+Mobilefacenet:单gpu batch_size=256,GPU显存占用16g，模型迭代速度260sample/s，识别一张图片60ms左右<br/>
 
 # 相关学习资料
 李飞飞计算机视觉cs231n课程<br/>
@@ -51,12 +57,12 @@ fast.ai课程<br/>
 人脸识别算法评价指标——TAR，FAR，FRR，ERR<br/>
 
 
-# 工程相关：
-opencv,dlib
-pip wheel --wheel-dir=下载目录 tensorlayer==x.x.x
-https://pypi.tuna.tsinghua.edu.cn/simple/
-awk 'BEGIN{ 100000*srand();}{ printf "%s %s\n", rand(), $0}'  ?train_160309-train.txt |sort -k1n | awk '{gsub($1FS,""); print $0}' | tee _.txt
-
+# 命令行记录：<br/>
+1.pip wheel --wheel-dir=下载目录 tensorlayer==x.x.x<br/>
+2.https://pypi.tuna.tsinghua.edu.cn/simple/<br/>
+3.awk 'BEGIN{srand();} {printf "%s %s\n", rand(), $0}' t | sort -k1n | awk '{gsub($1FS,""); print $0}' | tee shuffle.txt
+4.cat /usr/local/cuda/version.txt
+5.cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
 
 # 更新ing
 9.16<br/>
@@ -68,9 +74,6 @@ awk 'BEGIN{ 100000*srand();}{ printf "%s %s\n", rand(), $0}'  ?train_160309-trai
 
 9.20<br/>
 增加网纹生成脚本<br/>
-
-9.25<br/>
-增加预加载多gpu训练模型脚本<br/>
 
 10.1<br/>
 记录一些docker常用命令：<br/>
@@ -86,3 +89,9 @@ exit<br/>
 sudo docker rm  <br/>
 sudo docker rmi <br/>
 ctrl+p, ctrl+q <br/>
+
+10.20<br/>
+1.添加L_Resnet_E_IR多GPU训练脚本,可以进行单GPU或者CPU finetune
+2.添加MoblienFacenet多GPU训练脚本,可以进行单GPU或者CPU finetune
+
+

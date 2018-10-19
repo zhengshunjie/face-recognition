@@ -60,9 +60,9 @@ fast.ai课程<br/>
 # 命令行记录：<br/>
 1.pip wheel --wheel-dir=下载目录 tensorlayer==x.x.x<br/>
 2.https://pypi.tuna.tsinghua.edu.cn/simple/<br/>
-3.awk 'BEGIN{srand();} {printf "%s %s\n", rand(), $0}' t | sort -k1n | awk '{gsub($1FS,""); print $0}' | tee shuffle.txt
-4.cat /usr/local/cuda/version.txt
-5.cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
+3.awk 'BEGIN{srand();} {printf "%s %s\n", rand(), $0}' t | sort -k1n | awk '{gsub($1FS,""); print $0}' | tee shuffle.txt<br/>
+4.cat /usr/local/cuda/version.txt<br/>
+5.cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2<br/>
 
 # 更新ing
 9.16<br/>
@@ -91,7 +91,7 @@ sudo docker rmi <br/>
 ctrl+p, ctrl+q <br/>
 
 10.20<br/>
-1.添加L_Resnet_E_IR多GPU训练脚本,可以进行单GPU或者CPU finetune
-2.添加MoblienFacenet多GPU训练脚本,可以进行单GPU或者CPU finetune
+1.添加L_Resnet_E_IR多GPU训练脚本,可以进行单GPU或者CPU finetune<br/>
+2.添加MoblienFacenet多GPU训练脚本,可以进行单GPU或者CPU finetune<br/>
 
 

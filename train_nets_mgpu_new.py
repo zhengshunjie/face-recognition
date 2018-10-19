@@ -199,7 +199,7 @@ if __name__ == '__main__':
     sess.run(tf.global_variables_initializer())
 
     restore_saver = tf.train.Saver()
-    restore_saver.restore(sess, '/data/zzivenzhu/colabin/tf_facerec/output/ckpt/multi/InsightFace_iter_170000.ckpt')
+    restore_saver.restore(sess, '/dataInsightFace_iter.ckpt')
 
     # begin iteration
     count = 0

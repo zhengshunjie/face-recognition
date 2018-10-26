@@ -21,6 +21,9 @@ class FaceEncoder:
         images_placeholder = tf.get_default_graph().get_tensor_by_name("img_inputs_1:0")
         #images_placeholder2 = tf.get_default_graph().get_tensor_by_name("img_inputs:0")
         embeddings = tf.get_default_graph().get_tensor_by_name("tower_0/resnet_v1_50_1/E_BN2/Identity:0")
+        #mobilefacenet取法
+        #embeddings = tf.get_default_graph().get_tensor_by_name("tower_0/embedding_tensor:0")
+        
         #phase_train_placeholder = tf.get_default_graph().get_tensor_by_name("phase_train:0")
         dropout_rate_placeholder = self.sess.graph.get_tensor_by_name("dropout_rate:0")
         # Run forward pass to calculate embeddings

@@ -4,11 +4,6 @@
 # 项目介绍：<br/>
 目前在做人脸图像相关项目，开个repository记录一下开发心得<br/>
 
-# 环境：<br/>
-tensorflow_gpu 1.11.0<br/>
-cuda = 9.0<br/>
-cudnn = 7300<br/>
-
 # 参考论文:<br/>
 ## 人脸检测，关键点定位，追踪：<br/>
 【1】Deep Convolutional Network Cascade for Facial Point Detection<br/>
@@ -36,7 +31,8 @@ cudnn = 7300<br/>
 
 开发环境：
 tesla p40，4gpu，单卡显存22g<br/>
-python3 + tensorflow1.11 + cuda9.2 + cudnn7.2<br/>
+python3 + tensorflow_gpu 1.11.0 + cuda9.2 + cudnn7200<br/>
+python3 + tensorflow_gpu 1.11.0 + cuda9.0 + cudnn7300<br/>
 
 
 # loss函数实测：（仅作参考）<br/>

@@ -14,9 +14,9 @@ slim = tf.contrib.slim
 def get_parser():
     parser = argparse.ArgumentParser(description='parameters to train net')
     parser.add_argument('--epoch', default=100, help='epoch to train the network')
-    parser.add_argument('--batch_size', default=256,type=int, help='batch size to train network')
-    parser.add_argument('--lr_schedule', default=[4, 7, 9, 11], help='learning rate to train network')
-    parser.add_argument('--weight_decay', default=5e-5, help='learning alg momentum')
+    parser.add_argument('--batch_size', default=90,type=int, help='batch size to train network')
+    parser.add_argument('--lr_schedule', default=[8,35,40,50], help='learning rate to train network')
+    parser.add_argument('--weight_decay', default=1e-5, help='learning alg momentum')
     # parser.add_argument('--eval_datasets', default=['lfw', 'cfp_ff', 'cfp_fp', 'agedb_30'], help='evluation datasets')
     parser.add_argument('--eval_datasets', default=['asia'], help='evluation datasets')
     parser.add_argument('--eval_db_path', default='./data', help='evluate datasets base path')
@@ -24,8 +24,8 @@ def get_parser():
     parser.add_argument('--num_output', default=57613, help='the image size')
     parser.add_argument('--tfrecords_file_path', default='./data', type=str,
                         help='path to the output of tfrecords file path')
-    parser.add_argument('--summary_path', default='./output/summary/mobile', help='the summary file save path')
-    parser.add_argument('--ckpt_path', default='./output/ckpt/mobile', help='the ckpt file save path')
+    parser.add_argument('--summary_path', default='./output/summary/512_base_finetune', help='the summary file save path')
+    parser.add_argument('--ckpt_path', default='./output/ckpt/512_base_finetune', help='the ckpt file save path')
     parser.add_argument('--saver_maxkeep', default=100, help='tf.train.Saver max keep ckpt files')
     parser.add_argument('--buffer_size', default=100000, help='tf dataset api buffer size')
     parser.add_argument('--log_device_mapping', default=False, help='show device placement log')
@@ -123,7 +123,7 @@ if __name__ == '__main__':
     #                                  name='lr_schedule')
 
     learning_rate = tf.train.piecewise_constant(epoch, boundaries=args.lr_schedule,
-                                                values=[0.001, 0.0001, 0.0001, 0.0001, 0.00001],
+                                                values=[0.001, 0.001, 0.0001, 0.0001, 0.00001],
                                                 name='lr_schedule')
 
     # 3.3 define the optimize method
@@ -141,7 +141,7 @@ if __name__ == '__main__':
         with tf.device('/gpu:%d' % i):
           with tf.name_scope('%s_%d' % (args.tower_name, i)) as scope:
             # net = get_resnet(images_s[i], args.net_depth, type='ir', w_init=w_init_method, trainable=True, keep_rate=dropout_rate)
-            prelogits, net_points = inference(images_s[i], bottleneck_layer_size=128,
+            prelogits, net_points = inference(images_s[i], bottleneck_layer_size=512,
                                               phase_train=True, weight_decay=args.weight_decay)
 
             embeddings = tf.nn.l2_normalize(prelogits, 1, 1e-10, name='embeddings')
@@ -177,7 +177,7 @@ if __name__ == '__main__':
                 #test_net = get_resnet(images_test, args.net_depth, type='ir', w_init=w_init_method, trainable=False, keep_rate=dropout_rate)
                 #embedding_tensor = test_net.outputs
 
-                embedding_ten, net_points = inference(images_test, bottleneck_layer_size=128,
+                embedding_ten, net_points = inference(images_test, bottleneck_layer_size=512,
                                                   phase_train=False, weight_decay=args.weight_decay,reuse = True)
                 embedding_tensor = tf.nn.l2_normalize(embedding_ten, 1, 1e-10, name='embedding_tensor')
                 update_ops = tf.get_collection(tf.GraphKeys.UPDATE_OPS)
@@ -227,7 +227,7 @@ if __name__ == '__main__':
     sess.run(tf.global_variables_initializer())
 
     #restore_saver = tf.train.Saver()
-    #restore_saver.restore(sess, 'output/ckpt/multi/InsightFace_iter.ckpt')
+    #restore_saver.restore(sess, '/data/zzivenzhu/colabin/tf_facerec/output/ckpt/multi/InsightFace_iter_170000.ckpt')
 
     # begin iteration
     count = 0

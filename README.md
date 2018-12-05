@@ -48,6 +48,18 @@ inception_resnet_v1：按理说效果应该是要比resnet好，但是实测性�
 L_Resnet_E_IR：同样的loss函数下，最终迭代精确度最高的网络，迭代速度较于resnet和inception-resnet要慢一倍,采用了L_Resnet_50网络:bacth_size=32时GPU显存占用8g，tensorflow模型迭代速度约30-40 sample/s，识别一张图片300ms左右<br/>
 Mobilefacenet:单gpu batch_size=256,GPU显存占用16g，模型迭代速度260sample/s，识别一张图片60ms左右<br/>
 
+# 一些调优经验：<br/>
+关于神经网络的调优，一般可以考虑以下一些方面：<br/>
+embedding_size:在mobilefacenet中，128调整为512， 更加稳定<br/>
+adam参数调整，图像分类时部分超参数需要手动设置<br/>
+梯度爆炸，learning rate调小<br/>
+结合tensorboard观察loss下降趋势，相应地调节epoch迭代步数<br/>
+weight_decay罚项减小，增加模型复杂度<br/>
+图像归一化处理，训练和测试集要统一<br/>
+batch_size不是越大越好，要和模型相适应<br/>
+模型对于训练集的拟合度和类别的数量有直接关系，复杂的网络对于类别多的数据集拟合能力更好<br/>
+
+
 # 相关学习资料
 李飞飞计算机视觉cs231n课程<br/>
 fast.ai课程<br/>

@@ -18,12 +18,21 @@
 【2】Additive Margin Softmax for Face Verification<br/>
 【3】ArcFace-Additive Angular Margin Loss for Deep Face Recognition<br/>
 【4】MobileFaceNets Efficient CNNs for Accurate Real-Time Face Verification on Mobile Devices <br/>
+
 ## 活体检测：<br/>
-【1】Learning Deep Models for Face Anti-Spoofing Binary or Auxiliary Supervision<br/>
+【1】Face Flashing: a Secure Liveness Detection Protocol based on Light Reflections<br/>
+
 ## 人脸去网纹：<br/>
 【1】Multi-task ConvNet for Blind Face Inpainting with Application to Face Verification<br/>
 【2】DeMeshNet: Blind Face Inpainting for Deep MeshFace Verification<br/>
 
+## 防翻拍：<br/>
+【1】Learning Deep Models for Face Anti-Spoofing Binary or Auxiliary Supervision<br/>
+【2】CCoLBP: Chromatic Co-Occurrence of Local Binary Pattern for Face Presentation Attack Detection<br/>
+
+## 遮挡检测：<br/>
+【1】An Occluded Stacked Hourglass Approach to Facial Landmark Localization and Occlusion Estimation<br/>
+【2】Occlusion Coherence: Detecting and Localizing Occluded Faces<br/>
 
 # 数据集<br/>
 人脸识别：欧美：vggFace，lfw，WebFace，MSIM   亚洲：msra亚洲人脸数据集<br/>
@@ -50,7 +59,7 @@ Mobilefacenet:单gpu batch_size=256,GPU显存占用16g，模型迭代速度260sa
 
 # 一些调优经验：<br/>
 关于神经网络的调优，一般可以考虑以下一些方面：<br/>
-embedding_size:在mobilefacenet中，128调整为512， 更加稳定<br/>
+embedding_size:在mobilefacenet中，128调整为512，更加稳定<br/>
 adam参数调整，图像分类时部分超参数需要手动设置<br/>
 梯度爆炸，learning rate调小<br/>
 结合tensorboard观察loss下降趋势，相应地调节epoch迭代步数<br/>

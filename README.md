@@ -14,10 +14,17 @@
 【6】A Functional Regression approach to Facial Landmark Tracking<br/>
 
 ## 人脸识别：<br/>
+1:1 verification <br/>
 【1】FaceNet:A Unified Embedding for Face Recognition and Clustering<br/>
 【2】Additive Margin Softmax for Face Verification<br/>
 【3】ArcFace-Additive Angular Margin Loss for Deep Face Recognition<br/>
 【4】MobileFaceNets Efficient CNNs for Accurate Real-Time Face Verification on Mobile Devices <br/>
+
+1:n identification <br/>
+【1】A Fast and Accurate System for Face Detection, Identification, and Verification<br/>
+【2】MegaFace A Million Faces for Recognition at Scale<br/>
+【3】Unconstrained Face Recognition Identifying a Person of Interest from a Media Collection<br/>
+【4】Web-Scale Training for Face Identification<br/>
 
 ## 活体检测：<br/>
 【1】Face Flashing: a Secure Liveness Detection Protocol based on Light Reflections<br/>
